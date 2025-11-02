@@ -3,7 +3,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;  /*smooth scrolling*/
+  scroll-behavior: smooth;
 }
 
 body {
@@ -11,21 +11,19 @@ body {
   height: auto;
   overflow-x: hidden;
   overflow-y: auto;
-  scroll-behavior: smooth;
+  font-family: 'Times New Roman', serif;
+  background-color: #fff;
 }
 
-/*Social Media*/
-
+/* ======================= SOCIAL MEDIA ======================= */
 .social-navbar {
-    background-color: transparent;
-    position: fixed;
-    z-index: 1000;
-    right: 20px;
-    top: 10px;
-    gap: 15px;
-    text-align: right;
-    text-decoration: none;
-    display: flex;
+  background-color: transparent;
+  position: fixed;
+  z-index: 1000;
+  right: 20px;
+  top: 10px;
+  gap: 15px;
+  display: flex;
 }
 
 .social-navbar a {
@@ -47,147 +45,120 @@ body {
   color: #fffaf2;
   border-color: #fffaf2;
   box-shadow: 0 0 10px #fffaf2, 0 0 25px #fffaf2;
-}    
-    
-    /*0 0 35px = horizontal offset, vertical offset, blursize; 
-    225, 200, 0, 0.8 = color & transparency*/
+}
 
-
-
-
-/*Menu button==========================================================*/
-
+/* ======================= MENU BUTTON ======================= */
 .menu-button {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    padding: 1px 10px;           /*size box!*/
-    font-size: 1.2rem;
-    font-weight: bold;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: transparent;
-    border: none;           /*jika diberi angka 1px maka waktu di hover terlihat*/
-    color: #fefcfc;
-    cursor: pointer;
-    z-index: 2000;
-    transition: transform 0.3s ease;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  padding: 1px 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', sans-serif;
+  background: transparent;
+  border: none;
+  color: #fefcfc;
+  cursor: pointer;
+  z-index: 2000;
+  transition: transform 0.3s ease;
 }
 
 .menu-button:hover {
-    transform: scale(1.4);
-    border-radius: 7px;
-    box-shadow:
+  transform: scale(1.4);
+  border-radius: 7px;
+  box-shadow:
     0 0 20px #fbfbfa,
     0 0 35px #fffffe,
     inset 0 0 25px #fbfafa;
 }
 
 .logo-di-menu {
-    height: 20px;
-    width: auto;
-    border-radius: 2px;
-    background-color: #000;
-    transition: transform 0.3s ease, filter 0.4s ease;
+  height: 20px;
+  width: auto;
+  border-radius: 2px;
+  background-color: #000;
+  transition: transform 0.3s ease, filter 0.4s ease;
 }
 
 .logo-di-menu:hover {
   transform: scale(1.2);
-  filter: 
-  drop-shadow(0 0 8px #ffeadb)
-  drop-shadow(0 0 20px #ffeadb)
-  drop-shadow(0 0 40px #ffeadb);
+  filter:
+    drop-shadow(0 0 8px #ffeadb)
+    drop-shadow(0 0 20px #ffeadb)
+    drop-shadow(0 0 40px #ffeadb);
 }
 
-/* Nav panel (hidden by default) */
+/* ======================= NAVIGATION MENU ======================= */
 #navbar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    height: 100vh;
-    width: 250px;
-    background: rgba(255, 255, 255, 0.8)
-              url("stone.jpg") center/cover no-repeat;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: left 0.4s ease;
-    z-index: 1400;
-    max-height: 100vh;  /* ✅ still full height when visible */
-    pointer-events: none; /* ✅ ignore mouse when hidden */
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8)
+    url("stone.jpg") center/cover no-repeat;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.4s ease;
+  z-index: 1400;
+  pointer-events: none;
+  overflow-y: auto;
 }
 
-/* Visible state */
 #navbar.show {
-    left: 0;
-    pointer-events: all;
+  left: 0;
+  pointer-events: all;
+}
+
+#navbar a {
+  margin: 15px 0;
+  text-decoration: none;
+  color: #222;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 #navbar.show a {
-    opacity: 1;
-    transform: translate(0);
-}
-
-/* Links inside menu */
-#navbar a {
-    margin: 15px 0;
-    text-decoration: none;
-    color: #222;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.5rem;
-    font-style: italic;
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+  transform: translateX(0);
 }
 
 #navbar a:hover {
-    color: #910000;
-    transform: scale(1.3);
+  color: #910000;
+  transform: scale(1.3);
 }
 
-/*#navbar {
-    background: rgba(226, 130, 130, 0.7);
-    backdrop-filter: blur(10px);}*/
-
-/* delay each link slightly for staggered fade */
 #navbar.show a:nth-child(1) { transition-delay: 0.1s; }
 #navbar.show a:nth-child(2) { transition-delay: 0.2s; }
 #navbar.show a:nth-child(3) { transition-delay: 0.3s; }
 #navbar.show a:nth-child(4) { transition-delay: 0.4s; }
 
-
-
-/*Slide show header ===================================================*/
+/* ======================= HEADER & SLIDESHOW ======================= */
 header {
   width: 100%;
-  min-height: auto; /* ✅ let height follow content */
   overflow: visible;
-}
-
-main {
   display: block;
-  width: 100%;
 }
 
 .slideshow-container {
   position: relative;
   width: 100%;
-  height: 100vh;  /* still fills screen but now scroll continues after */
+  height: 100svh; /* ✅ safe viewport height */
   overflow: hidden;
   background: #000;
 }
 
-
-@media (max-width: 768px) {
-  /* ✅ make it fit smaller screens nicely */
+@supports not (height: 100svh) {
   .slideshow-container {
-    height: 80vh;
-  }
-  .caption {
-    font-size: 1.1rem;
-    bottom: 40px;
+    height: 100vh;
   }
 }
 
@@ -221,9 +192,10 @@ main {
   color: #fffaf2;
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
-  text-shadow: 0 0 20px rgba(0,0,0,0.8);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   opacity: 0;
   transition: all 1s ease;
+  text-align: center;
 }
 
 .slide-img.active .caption {
@@ -231,37 +203,31 @@ main {
   transform: translateX(-50%) translateY(0);
 }
 
-/* optional overlay for cinematic feel */
 .slide-img::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(transparent 50%, rgba(0,0,0,0.6));
+  background: radial-gradient(transparent 50%, rgba(0, 0, 0, 0.6));
   pointer-events: none;
   opacity: 0.5;
 }
-/*========================================================================*/
 
-
-/*about-me*/
+/* ======================= ABOUT ME ======================= */
 .aboutme-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 10%;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 60px 10%;
   background-color: #053d2d;
   gap: 20px;
 }
 
-.bio-img {        /*size foto w x h square*/
-  display: table-row;
+.bio-img {
   width: 200px;
   height: 200px;
-  padding-left: 10px;
+  border-radius: 50%;
 }
-  
+
 .judulbio {
   text-align: center;
   color: white;
@@ -270,40 +236,37 @@ main {
 
 .bio-text {
   padding-right: 10px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Georgia, serif;
   text-align: justify;
   color: #f0eeea;
 }
-/*===========================================================================*/
 
-
-/*section porto slider*/
+/* ======================= PORTFOLIO SLIDER ======================= */
 .galery-container {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 40px 0;
+  padding: 60px 0;
   background: #680202;
   text-align: center;
 }
 
 .carousel {
   display: flex;
-  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);  /*connect dgn jsc*/
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .slide-por {
-  transition: transform 1s ease-in-out;
-  flex-shrink: 0;                           /*no shinking*/
+  flex-shrink: 0;
   min-width: 100%;
   text-align: center;
 }
 
-.slide-por img {  /*descendant selection: select every image*/
+.slide-por img {
   width: 50%;
-  max-width: 450px;             /*  */
+  max-width: 450px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.5s, filter 0.5s;
   filter: brightness(90%);
 }
@@ -311,59 +274,25 @@ main {
 .slide-por img:hover {
   transform: scale(1.2);
   filter: brightness(100%);
-  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .title-icon {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, sans-serif;
   font-size: 1.3rem;
   margin-top: 12px;
-  text-decoration: none;
   display: inline-block;
+  color: #fff;
   transition: color 0.3s, text-shadow 0.3s;
 }
 
-.title-icon:hover {
-  color: #ffc107;
-  text-shadow: 0 0 10px #ffc107;
-  padding: 14px 20px;
-}
-
-.slide-link {
-  display: flex;
-  flex-direction: column;  /* stack image + title vertically */
-  align-items: center;     /* center horizontally */
-  text-decoration: none;
-}
-.slide-por p {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  margin-top: 10px;
-  color: #f8f7f7;
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
-/* Glow effect sync when hovering image or title */
 .slide-link:hover .title-icon,
 .slide-link img:hover + .title-icon {
-  color: #e9e8e5; /* elegant gold */
-  text-shadow: 
-    0 0 10px #ffc107,
-    0 0 20px #ffc107,
-    0 0 30px #ffc107;
+  color: #ffc107;
+  text-shadow: 0 0 10px #ffc107, 0 0 25px #ffc107;
   transform: scale(1.05);
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 6px 12px;
-  border-radius: 8px;
-  box-shadow: 
-    0 0 10px #fbfaf8,
-    inset 0 0 15px rgba(255, 193, 7, 0.3);
 }
 
-
-/*buttons*/
-.prev-por, .next-por {          /*tombol kanan kiri*/
+.prev-por, .next-por {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -373,123 +302,96 @@ main {
   font-size: 2.2rem;
   cursor: pointer;
   z-index: 20;
-  transition: all 0.3s ease;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .prev-por:hover, .next-por:hover {
-  color: #ffc107;                  /* glowing gold arrow only */
+  color: #ffc107;
   text-shadow: 0 0 10px #ffc107, 0 0 25px #ffc107;
   transform: translateY(-50%) scale(1.2);
 }
 
-/* Button placement — beside image, not outside container */
-.prev-por {
-  left: 7%;
-}
+.prev-por { left: 7%; }
+.next-por { right: 7%; }
 
-.next-por {
-  right: 7%;
-}
-/*==============================================================================*/
-
-
-
-/*contact me*/
+/* ======================= CONTACT ======================= */
 .container-contact {
-    width: 100%;
-    background-image: url(nirmana_kuning.jpg);
-    display: flex;
-    flex-direction: row; /* changed from column */
-    justify-content: flex-end;  /* move items to the right */
-    align-items: flex-start;   /* align to the top */
-    height: 80%;
-    padding: 20px;
-    min-height: 100vh;
-    gap: 10px;
-}
-.contact-form {
-    background-color: white;
-    padding: 20px;
-    width: 300px;
-    margin: 40px 200px 40px 0;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    font-family: 'Verdana', sans-serif;
+  width: 100%;
+  background-image: url(nirmana_kuning.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 60px;
+  min-height: 100vh;
+  gap: 10px;
 }
 
-.contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.contact-form {
+  background-color: white;
+  padding: 20px;
+  width: 320px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Verdana', sans-serif;
 }
 
 .contact-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.contact-form input,                  /*isian box*/
+.contact-form input,
 .contact-form textarea {
-    padding: 10px;
-    font-size: 10px;
-    border: 1px solid #aaa;
-    border-radius: 8px;
-    width: 100%;
-    resize: vertical;
-    box-sizing: border-box;
+  padding: 10px;
+  font-size: 10px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  width: 100%;
+  resize: vertical;
+  box-sizing: border-box;
 }
 
 .contact-form button {
-    background-color: rgb(199, 11, 11);
-    color: white;
-    padding: 20px;
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: rgb(199, 11, 11);
+  color: white;
+  padding: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .contact-form button:hover {
-    background-color: #665f52;
+  background-color: #665f52;
 }
-/*==============================================================================*/
 
-
-/*footer*/
+/* ======================= FOOTER ======================= */
 .footer {
-    width: 100%;
-    font-size: small;
-    font-weight: bold;
-    text-align: center;     /*supaya dia bisa ke tengah*/
-    padding: 8px 8px;
-    justify-content: center;
-    margin-bottom: 0;
-    background-color: rgb(235, 201, 157);
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  background-color: rgb(235, 201, 157);
 }
 
 .h1-footer {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 10px;
+  font-family: 'Lucida Sans', sans-serif;
+  font-size: 12px;
 }
 
 .footer-credit {
-    display: block;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
+  display: block;
+  padding-top: 8px;
+  font-style: italic;
 }
 
-/*==============================================================================*/
-
-
-/* Mobile view adjustments */
+/* ======================= MOBILE VIEW ======================= */
 @media (max-width: 768px) {
   .aboutme-container {
     flex-direction: column;
-    padding: 20px;
+    padding: 40px 20px;
   }
 
   .bio-img {
@@ -507,7 +409,6 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-size: cover;
     padding: 30px 10px;
   }
 
@@ -519,6 +420,10 @@ main {
   .prev-por, .next-por {
     font-size: 1.6rem;
   }
+
+  .caption {
+    font-size: 1.1rem;
+    bottom: 40px;
+    padding: 0 10px;
+  }
 }
-
-
