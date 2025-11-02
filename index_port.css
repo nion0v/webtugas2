@@ -54,10 +54,7 @@ body {
     /*0 0 35px = horizontal offset, vertical offset, blursize; 
     225, 200, 0, 0.8 = color & transparency*/
 
-main {
-  display: block;
-  width: 100%;
-}
+
 
 
 /*Menu button==========================================================*/
@@ -168,6 +165,11 @@ main {
 header {
   min-height: 100vh;
   overflow: visible;
+}
+
+main {
+  display: block;
+  width: 100%;
 }
 
 .slideshow-container {
@@ -471,5 +473,6 @@ header {
 }
 
 /*==============================================================================*/
+
 
 
