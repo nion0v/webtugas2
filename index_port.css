@@ -242,6 +242,7 @@ header {
 }
 
 /* ======================= PORTFOLIO SLIDER ======================= */
+/* ======================= PORTFOLIO SLIDER ======================= */
 .galery-container {
   position: relative;
   width: 100%;
@@ -253,67 +254,112 @@ header {
 
 .carousel {
   display: flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .slide-por {
   flex-shrink: 0;
   min-width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  pointer-events: none; /* 🧠 disables accidental clicks while transitioning */
+}
+
+.slide-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  pointer-events: auto; /* ✅ re-enables clicking inside */
 }
 
 .slide-por img {
-  width: 50%;
+  width: 45%;
   max-width: 450px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   transition: transform 0.5s, filter 0.5s;
   filter: brightness(90%);
+  margin: 0 auto; /* ✅ truly center image */
+  pointer-events: auto;
 }
 
 .slide-por img:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
   filter: brightness(100%);
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .title-icon {
-  font-family: Impact, sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 1.3rem;
   margin-top: 12px;
+  text-decoration: none;
   display: inline-block;
-  color: #fff;
   transition: color 0.3s, text-shadow 0.3s;
+  color: #fff;
 }
 
 .slide-link:hover .title-icon,
 .slide-link img:hover + .title-icon {
   color: #ffc107;
-  text-shadow: 0 0 10px #ffc107, 0 0 25px #ffc107;
+  text-shadow:
+    0 0 10px #ffc107,
+    0 0 25px #ffc107;
   transform: scale(1.05);
 }
 
+/* ======================= BUTTONS ======================= */
 .prev-por, .next-por {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent;
+  background: rgba(0, 0, 0, 0.4);
   border: none;
   color: #ffffff;
   font-size: 2.2rem;
   cursor: pointer;
-  z-index: 20;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  z-index: 25;
   transition: all 0.3s ease;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
 }
 
 .prev-por:hover, .next-por:hover {
-  color: #ffc107;
-  text-shadow: 0 0 10px #ffc107, 0 0 25px #ffc107;
-  transform: translateY(-50%) scale(1.2);
+  background: rgba(255, 193, 7, 0.9);
+  color: #000;
+  box-shadow: 0 0 15px #ffc107, 0 0 25px #ffc107;
+  transform: translateY(-50%) scale(1.15);
 }
 
-.prev-por { left: 7%; }
-.next-por { right: 7%; }
+/* ✅ move outside the image’s clickable area */
+.prev-por { left: 3%; }
+.next-por { right: 3%; }
+
+@media (max-width: 768px) {
+  .slide-por img {
+    width: 70%;
+    max-width: 320px;
+  }
+
+  .prev-por, .next-por {
+    font-size: 1.5rem;
+    width: 38px;
+    height: 38px;
+  }
+}
+
 
 /* ======================= CONTACT ======================= */
 .container-contact {
@@ -427,3 +473,4 @@ header {
     padding: 0 10px;
   }
 }
+
