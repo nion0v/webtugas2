@@ -2,18 +2,16 @@
 html {
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  box-sizing: border-box;
   scroll-behavior: smooth;  /*smooth scrolling*/
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;   /* ✅ hide horizontal scroll */
-    overflow-y: auto;     /* keep vertical scrolling */
-    /*min-height: 100vh;*/
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 /*Social Media*/
@@ -163,7 +161,8 @@ body {
 
 /*Slide show header ===================================================*/
 header {
-  min-height: 100vh;
+  width: 100%;
+  min-height: auto; /* ✅ let height follow content */
   overflow: visible;
 }
 
@@ -175,10 +174,21 @@ main {
 .slideshow-container {
   position: relative;
   width: 100%;
-  min-height: 100vh;   /* ✅ can stretch beyond 1 screen */
-  overflow: hidden;    /* still hides slide transitions but not page scroll */
+  height: 100vh;  /* still fills screen but now scroll continues after */
+  overflow: hidden;
   background: #000;
-  display: block;
+}
+
+
+@media (max-width: 768px) {
+  /* ✅ make it fit smaller screens nicely */
+  .slideshow-container {
+    height: 80vh;
+  }
+  .caption {
+    font-size: 1.1rem;
+    bottom: 40px;
+  }
 }
 
 .slide-img {
@@ -474,5 +484,41 @@ main {
 
 /*==============================================================================*/
 
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .aboutme-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .bio-img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .bio-text {
+    padding: 0;
+    text-align: left;
+  }
+
+  .container-contact {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    padding: 30px 10px;
+  }
+
+  .contact-form {
+    width: 90%;
+    margin: 0;
+  }
+
+  .prev-por, .next-por {
+    font-size: 1.6rem;
+  }
+}
 
 
