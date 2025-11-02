@@ -1,9 +1,11 @@
 *,
 html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;   /*smooth scrolling*/
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;  /*smooth scrolling*/
 }
 
 body {
@@ -156,13 +158,18 @@ body {
 
 
 /*Slide show header ===================================================*/
+header {
+  min-height: 100vh;
+  overflow: visible;
+}
 
 .slideshow-container {
   position: relative;
   width: 100%;
-  min-height: 100vh;  /* ✅ allow scroll beyond 1 screen height if needed */
-  overflow: visible;  /* ✅ allow scroll */
+  min-height: 100vh;   /* ✅ can stretch beyond 1 screen */
+  overflow: hidden;    /* still hides slide transitions but not page scroll */
   background: #000;
+  display: block;
 }
 
 .slide-img {
@@ -457,3 +464,4 @@ body {
 }
 
 /*==============================================================================*/
+
