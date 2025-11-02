@@ -160,8 +160,8 @@ body {
 .slideshow-container {
   position: relative;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;  /* ✅ allow scroll beyond 1 screen height if needed */
+  overflow: visible;  /* ✅ allow scroll */
   background: #000;
 }
 
@@ -455,4 +455,5 @@ body {
     padding-top: 3vh;
     padding-bottom: 3vh;
 }
+
 /*==============================================================================*/
